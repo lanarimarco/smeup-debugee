@@ -16,8 +16,6 @@
     <body>
         <h2>com.smeup.debugee.helloworld.HelloWorldDebugee</h2>
         <code><%=url%>helloworld/source.txt</code>
-        <h2>com.smeup.debugee.mock.MockDebugee</h2>
-        <code><%=url%>mock/source.txt</code>
         <h2>com.smeup.debugee.simple.SimpleDebugeeImpl</h2>
         <code><%=url%>simple/source.txt</code>
     </body>
