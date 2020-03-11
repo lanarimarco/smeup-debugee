@@ -51,12 +51,33 @@ public class SimpleInterpreterImpl implements SimpleInterpreter{
     }
 
     @Override
-    public boolean interpret() {
+    public boolean stepOver() {
         LOGGER.log(Level.INFO, "Interpreting {0}", 
                 statements.get(simpleDebugeeContext.getLineNumber()));
         simpleDebugeeContext.setLineNumber(simpleDebugeeContext.getLineNumber()+1);
         return simpleDebugeeContext.getLineNumber() < statements.size();   
     }
     
-    
+    @Override
+    public boolean stepInto() {
+        LOGGER.log(Level.INFO, "Interpreting {0}", 
+                statements.get(simpleDebugeeContext.getLineNumber()));
+        simpleDebugeeContext.setLineNumber(simpleDebugeeContext.getLineNumber()+1);
+        return simpleDebugeeContext.getLineNumber() < statements.size();   
+    }
+
+    @Override
+    public boolean stepOut() {
+        LOGGER.log(Level.INFO, "Interpreting {0}", 
+                statements.get(simpleDebugeeContext.getLineNumber()));
+        simpleDebugeeContext.setLineNumber(simpleDebugeeContext.getLineNumber()+1);
+        return simpleDebugeeContext.getLineNumber() < statements.size();   
+    }
+
+    @Override
+    public boolean resume() {
+        do{}while(stepOver());
+        return false;
+    }
+      
 }

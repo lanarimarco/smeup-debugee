@@ -24,8 +24,6 @@ public class HelloWorldInterpreter implements SimpleInterpreter{
         simpleDebugeeContext.setFunctionName("main");
     }
     
-    
-
     @Override
     public SimpleScript getSimpleScript(String scriptId) {
         return simpleScript;
@@ -37,12 +35,27 @@ public class HelloWorldInterpreter implements SimpleInterpreter{
     }
 
     @Override
-    public boolean interpret() {
+    public boolean stepOver() {
         System.out.println(simpleScript.getSource());
         return false;
     }
     
+    @Override
+    public boolean stepInto() {
+        System.out.println(simpleScript.getSource());
+        return false;
+    }
     
-    
+    @Override
+    public boolean stepOut() {
+        System.out.println(simpleScript.getSource());
+        return false;
+    }
+
+    @Override
+    public boolean resume() {
+        System.out.println(simpleScript.getSource());
+        return false;
+    }
     
 }
