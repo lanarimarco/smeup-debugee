@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.smeup.debugee.simple;
+package com.smeup.debuggee.simple;
 
-import com.smeup.debugger.chromedev.DebugeeImpl;
-import com.smeup.debugger.chromedev.simpledebugee.SimpleDebugee;
-import com.smeup.debugger.chromedev.simpledebugee.SimpleInterpreter;
+import com.smeup.debugger.chromedev.DebuggeeImpl;
+import com.smeup.debugger.chromedev.simpledebuggee.SimpleDebuggee;
+import com.smeup.debugger.chromedev.simpledebuggee.SimpleInterpreter;
 import java.io.IOException;
 
 /**
  *
  * @author marco.lanari
  */
-@DebugeeImpl (descr = "A simple debugee implementation", id = "simple")
-public class SimpleDebugeeImpl extends SimpleDebugee{
+@DebuggeeImpl (descr = "A simple debuggee implementation", id = "simple")
+public class SimpleDebuggeeImpl extends SimpleDebuggee{
     
 
     @Override

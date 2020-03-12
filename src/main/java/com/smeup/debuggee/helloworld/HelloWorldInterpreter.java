@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.smeup.debugee.helloworld;
+package com.smeup.debuggee.helloworld;
 
-import com.smeup.debugger.chromedev.simpledebugee.SimpleInterpreter;
-import com.smeup.debugger.chromedev.simpledebugee.model.SimpleDebugeeContext;
-import com.smeup.debugger.chromedev.simpledebugee.model.SimpleScript;
+import com.smeup.debugger.chromedev.simpledebuggee.SimpleInterpreter;
+import com.smeup.debugger.chromedev.simpledebuggee.model.SimpleDebuggeeContext;
+import com.smeup.debugger.chromedev.simpledebuggee.model.SimpleScript;
 
 /**
  *
@@ -15,13 +15,13 @@ import com.smeup.debugger.chromedev.simpledebugee.model.SimpleScript;
  */
 public class HelloWorldInterpreter implements SimpleInterpreter{
     
-    private SimpleScript simpleScript = new SimpleScript("HelloWorld", "Hello world!!!");
-    private SimpleDebugeeContext simpleDebugeeContext = new SimpleDebugeeContext();
+    private final SimpleScript simpleScript = new SimpleScript("HelloWorld", "Hello world!!!");
+    private final SimpleDebuggeeContext simpleDebuggeeContext = new SimpleDebuggeeContext();
 
     public HelloWorldInterpreter() {
-        simpleDebugeeContext.setScriptId("HelloWorld");
-        simpleDebugeeContext.setLineNumber(0);
-        simpleDebugeeContext.setFunctionName("main");
+        simpleDebuggeeContext.setScriptId("HelloWorld");
+        simpleDebuggeeContext.setLineNumber(0);
+        simpleDebuggeeContext.setFunctionName("main");
     }
     
     @Override
@@ -30,8 +30,8 @@ public class HelloWorldInterpreter implements SimpleInterpreter{
     }
 
     @Override
-    public SimpleDebugeeContext getSimpleDebugeeContext() {
-        return simpleDebugeeContext;
+    public SimpleDebuggeeContext getSimpleDebuggeeContext() {
+        return simpleDebuggeeContext;
     }
 
     @Override

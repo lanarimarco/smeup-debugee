@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.smeup.debugee.simple;
+package com.smeup.debuggee.simple;
 
-import com.smeup.debugger.chromedev.simpledebugee.SimpleInterpreter;
-import com.smeup.debugger.chromedev.simpledebugee.model.SimpleDebugeeContext;
-import com.smeup.debugger.chromedev.simpledebugee.model.SimpleScript;
+import com.smeup.debugger.chromedev.simpledebuggee.SimpleInterpreter;
+import com.smeup.debugger.chromedev.simpledebuggee.model.SimpleDebuggeeContext;
+import com.smeup.debugger.chromedev.simpledebuggee.model.SimpleScript;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -23,17 +23,17 @@ public class SimpleInterpreterImpl implements SimpleInterpreter{
     private static final Logger LOGGER = Logger.getLogger(SimpleInterpreterImpl.class.getName());
 
     private final SimpleScript simpleScript;
-    private final SimpleDebugeeContext simpleDebugeeContext;
+    private final SimpleDebuggeeContext simpleDebuggeeContext;
     private final List<String> statements; 
     
     
 
     public SimpleInterpreterImpl(String scriptId) throws IOException {
         simpleScript = SimpleScript.createBy(scriptId, getClass().getResource("/simple/" + scriptId));
-        simpleDebugeeContext = new SimpleDebugeeContext();
-        simpleDebugeeContext.setFunctionName("main");
-        simpleDebugeeContext.setLineNumber(0);
-        simpleDebugeeContext.setScriptId(scriptId);
+        simpleDebuggeeContext = new SimpleDebuggeeContext();
+        simpleDebuggeeContext.setFunctionName("main");
+        simpleDebuggeeContext.setLineNumber(0);
+        simpleDebuggeeContext.setScriptId(scriptId);
         statements = Arrays.asList(simpleScript.getSource().split("\n"));
     }
     
@@ -46,32 +46,32 @@ public class SimpleInterpreterImpl implements SimpleInterpreter{
     }
 
     @Override
-    public SimpleDebugeeContext getSimpleDebugeeContext() {
-        return simpleDebugeeContext;
+    public SimpleDebuggeeContext getSimpleDebuggeeContext() {
+        return simpleDebuggeeContext;
     }
 
     @Override
     public boolean stepOver() {
         LOGGER.log(Level.INFO, "Interpreting {0}", 
-                statements.get(simpleDebugeeContext.getLineNumber()));
-        simpleDebugeeContext.setLineNumber(simpleDebugeeContext.getLineNumber()+1);
-        return simpleDebugeeContext.getLineNumber() < statements.size();   
+                statements.get(simpleDebuggeeContext.getLineNumber()));
+        simpleDebuggeeContext.setLineNumber(simpleDebuggeeContext.getLineNumber()+1);
+        return simpleDebuggeeContext.getLineNumber() < statements.size();   
     }
     
     @Override
     public boolean stepInto() {
         LOGGER.log(Level.INFO, "Interpreting {0}", 
-                statements.get(simpleDebugeeContext.getLineNumber()));
-        simpleDebugeeContext.setLineNumber(simpleDebugeeContext.getLineNumber()+1);
-        return simpleDebugeeContext.getLineNumber() < statements.size();   
+                statements.get(simpleDebuggeeContext.getLineNumber()));
+        simpleDebuggeeContext.setLineNumber(simpleDebuggeeContext.getLineNumber()+1);
+        return simpleDebuggeeContext.getLineNumber() < statements.size();   
     }
 
     @Override
     public boolean stepOut() {
         LOGGER.log(Level.INFO, "Interpreting {0}", 
-                statements.get(simpleDebugeeContext.getLineNumber()));
-        simpleDebugeeContext.setLineNumber(simpleDebugeeContext.getLineNumber()+1);
-        return simpleDebugeeContext.getLineNumber() < statements.size();   
+                statements.get(simpleDebuggeeContext.getLineNumber()));
+        simpleDebuggeeContext.setLineNumber(simpleDebuggeeContext.getLineNumber()+1);
+        return simpleDebuggeeContext.getLineNumber() < statements.size();   
     }
 
     @Override

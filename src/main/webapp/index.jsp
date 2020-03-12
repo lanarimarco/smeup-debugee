@@ -11,12 +11,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>HelloWorldDebug</title>
+        <title>Smeup Debuggee</title>
     </head>
     <body>
-        <h2>com.smeup.debugee.helloworld.HelloWorldDebugee</h2>
+        <h2>com.smeup.debuggee.helloworld.HelloWorldDebuggee</h2>
         <code><%=url%>helloworld/source.txt</code>
-        <h2>com.smeup.debugee.simple.SimpleDebugeeImpl</h2>
+        <h2>com.smeup.debuggee.simple.SimpleDebuggeeImpl</h2>
         <code><%=url%>simple/source.txt</code>
     </body>
 </html>
